@@ -1,0 +1,12 @@
+var SC = require('soundcloud');
+
+SC.initialize({
+  client_id: 'YOUR_CLIENT_ID',
+  redirect_uri: 'CALLBACK_URL'
+});
+
+SC.get("/tracks", function(response) {
+	for(var i = 0; i < response.length; i++) {
+		$("ul").append("<li>" + response[i].title + "</li>");
+	}
+});
